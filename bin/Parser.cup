@@ -1,0 +1,44 @@
+/*
+ * analyseur syntaxique  du langage timestamp:
+ * (voir supports de cours)
+ *
+ * auteur : azim.roussanaly@univ-lorraine.fr
+ * (c) 2017
+ */ 
+package fr.ul.miage.logs.generated;
+
+/* la grammaire */
+
+terminal IP, TIRET, METHOD, FINLIGNE;
+terminal CO, CF, SL, DP;
+terminal JAN, FEV, MAR, AVR, MAI, JUIN, JUIL, AOU, SEP, OCT, NOV, DEC;
+terminal DECAL;
+terminal NUM;
+
+non terminal  x, log, mois, timestamp;
+
+start with x;
+
+x ::= log FINLIGNE x
+	| log FINLIGNE 
+    ;
+      
+log ::= IP TIRET TIRET timestamp METHOD NUM NUM
+	;
+      
+timestamp	::= CO NUM SL mois SL NUM DP NUM DP NUM DP NUM DECAL CF 
+    		;
+              
+mois 	::= JAN 
+		| FEV 
+		| MAR 
+		| AVR 
+		| MAI 
+		| JUIN 
+		| JUIL 
+		| AOU 
+		| SEP 
+		| OCT 
+		| NOV 
+		| DEC 
+		;
