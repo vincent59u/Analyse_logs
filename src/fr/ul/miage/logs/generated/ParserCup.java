@@ -5,6 +5,9 @@
 
 package fr.ul.miage.logs.generated;
 
+import fr.ul.miage.logs.session.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20141204 (SVN rev 60) generated parser.
@@ -123,6 +126,15 @@ public class ParserCup extends java_cup.runtime.lr_parser {
 /** Cup generated class to encapsulate user supplied action code.*/
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
 class CUP$ParserCup$actions {
+
+//@@CUPDBG0
+
+	Table table = new Table();
+	IP ip;
+	long dateMilli;
+	Date date;
+	SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy:HH:mm:ss");
+
   private final ParserCup parser;
 
   /** Constructor */
@@ -162,7 +174,8 @@ class CUP$ParserCup$actions {
           case 1: // x ::= log FINLIGNE x 
             {
               Object RESULT =null;
-
+		//@@CUPDBG1
+ table.ajouter(ip, dateMilli); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("x",0, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-2)), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -180,7 +193,14 @@ class CUP$ParserCup$actions {
           case 3: // log ::= IP TIRET TIRET timestamp METHOD NUM NUM 
             {
               Object RESULT =null;
-
+		int ipleft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).left;
+		int ipright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).right;
+		Object ip = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).value;
+		int dateleft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-3)).left;
+		int dateright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-3)).right;
+		Object date = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-3)).value;
+		//@@CUPDBG2
+ RESULT = new IP("ip"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("log",1, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -189,7 +209,28 @@ class CUP$ParserCup$actions {
           case 4: // timestamp ::= CO NUM SL mois SL NUM DP NUM DP NUM DP NUM DECAL CF 
             {
               Object RESULT =null;
-
+		int dleft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-12)).left;
+		int dright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-12)).right;
+		Object d = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-12)).value;
+		int moleft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-10)).left;
+		int moright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-10)).right;
+		Object mo = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-10)).value;
+		int yleft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-8)).left;
+		int yright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-8)).right;
+		Object y = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-8)).value;
+		int hleft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).left;
+		int hright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).right;
+		Object h = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).value;
+		int mileft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-4)).left;
+		int miright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-4)).right;
+		Object mi = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-4)).value;
+		int sleft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-2)).left;
+		int sright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-2)).right;
+		Object s = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-2)).value;
+		//@@CUPDBG3
+ date = format.parse("d/mo/y:h:mi:s");
+																				     long dateMilli = date.getTime();
+																				  
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("timestamp",3, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-13)), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -198,7 +239,8 @@ class CUP$ParserCup$actions {
           case 5: // mois ::= JAN 
             {
               Object RESULT =null;
-
+		//@@CUPDBG4
+ RESULT = new String("01"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -207,7 +249,8 @@ class CUP$ParserCup$actions {
           case 6: // mois ::= FEV 
             {
               Object RESULT =null;
-
+		//@@CUPDBG5
+ RESULT = new String("02"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -216,7 +259,8 @@ class CUP$ParserCup$actions {
           case 7: // mois ::= MAR 
             {
               Object RESULT =null;
-
+		//@@CUPDBG6
+ RESULT = new String("03"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -225,7 +269,8 @@ class CUP$ParserCup$actions {
           case 8: // mois ::= AVR 
             {
               Object RESULT =null;
-
+		//@@CUPDBG7
+ RESULT = new String("04"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -234,7 +279,8 @@ class CUP$ParserCup$actions {
           case 9: // mois ::= MAI 
             {
               Object RESULT =null;
-
+		//@@CUPDBG8
+ RESULT = new String("05"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -243,7 +289,8 @@ class CUP$ParserCup$actions {
           case 10: // mois ::= JUIN 
             {
               Object RESULT =null;
-
+		//@@CUPDBG9
+ RESULT = new String("06"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -252,7 +299,8 @@ class CUP$ParserCup$actions {
           case 11: // mois ::= JUIL 
             {
               Object RESULT =null;
-
+		//@@CUPDBG10
+ RESULT = new String("07"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -261,7 +309,8 @@ class CUP$ParserCup$actions {
           case 12: // mois ::= AOU 
             {
               Object RESULT =null;
-
+		//@@CUPDBG11
+ RESULT = new String("08"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -270,7 +319,8 @@ class CUP$ParserCup$actions {
           case 13: // mois ::= SEP 
             {
               Object RESULT =null;
-
+		//@@CUPDBG12
+ RESULT = new String("09"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -279,7 +329,8 @@ class CUP$ParserCup$actions {
           case 14: // mois ::= OCT 
             {
               Object RESULT =null;
-
+		//@@CUPDBG13
+ RESULT = new String("10"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -288,7 +339,8 @@ class CUP$ParserCup$actions {
           case 15: // mois ::= NOV 
             {
               Object RESULT =null;
-
+		//@@CUPDBG14
+ RESULT = new String("11"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -297,7 +349,8 @@ class CUP$ParserCup$actions {
           case 16: // mois ::= DEC 
             {
               Object RESULT =null;
-
+		//@@CUPDBG15
+ RESULT = new String("12"); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("mois",2, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;

@@ -6,6 +6,17 @@
  * (c) 2017
  */ 
 package fr.ul.miage.logs.generated;
+import fr.ul.miage.logs.session.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+action code {:
+	Table table = new Table();
+	IP ip;
+	long dateMilli;
+	Date date;
+	SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy:HH:mm:ss");
+:}
 
 /* la grammaire */
 
@@ -19,26 +30,28 @@ non terminal  x, log, mois, timestamp;
 
 start with x;
 
-x ::= log FINLIGNE x
+x ::= log FINLIGNE x {: table.ajouter(ip, dateMilli); :}
 	| log FINLIGNE 
     ;
       
-log ::= IP TIRET TIRET timestamp METHOD NUM NUM
+log ::= IP:ip TIRET TIRET timestamp:date METHOD NUM NUM {: RESULT = new IP("ip"); :}
 	;
       
-timestamp	::= CO NUM SL mois SL NUM DP NUM DP NUM DP NUM DECAL CF 
+timestamp	::= CO NUM:d SL mois:mo SL NUM:y DP NUM:h DP NUM:mi DP NUM:s DECAL CF {: date = format.parse("d/mo/y:h:mi:s");
+																				     long dateMilli = date.getTime();
+																				  :}
     		;
               
-mois 	::= JAN 
-		| FEV 
-		| MAR 
-		| AVR 
-		| MAI 
-		| JUIN 
-		| JUIL 
-		| AOU 
-		| SEP 
-		| OCT 
-		| NOV 
-		| DEC 
+mois 	::= JAN {: RESULT = new String("01"); :}
+		| FEV {: RESULT = new String("02"); :}
+		| MAR {: RESULT = new String("03"); :}
+		| AVR {: RESULT = new String("04"); :}
+		| MAI {: RESULT = new String("05"); :}
+		| JUIN {: RESULT = new String("06"); :}
+		| JUIL {: RESULT = new String("07"); :}
+		| AOU {: RESULT = new String("08"); :}
+		| SEP {: RESULT = new String("09"); :}
+		| OCT {: RESULT = new String("10"); :}
+		| NOV {: RESULT = new String("11"); :}
+		| DEC {: RESULT = new String("12"); :}
 		;
