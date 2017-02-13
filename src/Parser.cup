@@ -31,10 +31,10 @@ non terminal  x, log, mois, timestamp;
 start with x;
 
 x ::= log FINLIGNE x {: table.ajouter(ip, dateMilli); :}
-	| log FINLIGNE 
+	| log FINLIGNE {: table.ajouter(ip, dateMilli); :}
     ;
       
-log ::= IP:ip TIRET TIRET timestamp:date METHOD NUM NUM {: RESULT = new IP("ip"); :}
+log ::= IP:ip TIRET TIRET timestamp:date METHOD NUM NUM {: ip = new IP("ip"); :}
 	;
       
 timestamp	::= CO NUM:d SL mois:mo SL NUM:y DP NUM:h DP NUM:mi DP NUM:s DECAL CF {: date = format.parse("d/mo/y:h:mi:s");

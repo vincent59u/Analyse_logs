@@ -10,8 +10,9 @@ import fr.ul.miage.logs.generated.Yylex;
 
 
 /**
- * @author azim
- *
+ * Classe principal, point d'entré du programme
+ * Permet de lancer l'analyse des logs
+ * @author Matthieu
  */
 public class Main {
 
