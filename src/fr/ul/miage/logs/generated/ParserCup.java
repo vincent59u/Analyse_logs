@@ -7,7 +7,6 @@ package fr.ul.miage.logs.generated;
 
 import fr.ul.miage.logs.session.*;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20141204 (SVN rev 60) generated parser.
@@ -133,7 +132,6 @@ class CUP$ParserCup$actions {
 	IP ip;
 	long dateMilli;
 	Date date;
-	SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy:HH:mm:ss");
 
   private final ParserCup parser;
 
@@ -194,14 +192,11 @@ class CUP$ParserCup$actions {
           case 3: // log ::= IP TIRET TIRET timestamp METHOD NUM NUM 
             {
               Object RESULT =null;
-		int ipleft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).left;
-		int ipright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).right;
-		Object ip = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).value;
-		int dateleft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-3)).left;
-		int dateright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-3)).right;
-		Object date = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-3)).value;
+		int ileft = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).left;
+		int iright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).right;
+		Object i = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)).value;
 		//@@CUPDBG3
- ip = new IP("ip"); 
+ ip = new IP((String)i); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("log",1, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-6)), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;
@@ -229,9 +224,13 @@ class CUP$ParserCup$actions {
 		int sright = ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-2)).right;
 		Object s = (Object)((java_cup.runtime.Symbol) CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-2)).value;
 		//@@CUPDBG4
- date = format.parse("d/mo/y:h:mi:s");
-																				     long dateMilli = date.getTime();
-																				  
+ date = new Date(Integer.parseInt((String)y), 
+																									 Integer.parseInt((String)mo), 
+																									 Integer.parseInt((String)d), 
+																									 Integer.parseInt((String)h), 
+																									 Integer.parseInt((String)mi), 
+																									 Integer.parseInt((String)s));
+																					 dateMilli = date.getTime(); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("timestamp",3, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-13)), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }
           return CUP$ParserCup$result;

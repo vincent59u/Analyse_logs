@@ -47,7 +47,7 @@ FINLIGNE=   \n
 {IP}		{ return new Symbol(sym.IP); }
 {METHOD}	{ return new Symbol(sym.METHOD); }
 {DECAL}     { return new Symbol(sym.DECAL); }
-{NUM}       { return new Symbol(sym.NUM); }
+{NUM}       { return new Symbol(sym.NUM, yytext()); }
 {SEP}       { ; }
 {FINLIGNE}		{ return new Symbol(sym.FINLIGNE); }
 .			{ return null; }

@@ -8,14 +8,12 @@
 package fr.ul.miage.logs.generated;
 import fr.ul.miage.logs.session.*;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 
 action code {:
 	Table table = new Table();
 	IP ip;
 	long dateMilli;
 	Date date;
-	SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy:HH:mm:ss");
 :}
 
 /* la grammaire */
@@ -34,12 +32,16 @@ x ::= log FINLIGNE x {: table.ajouter(ip, dateMilli); :}
 	| log FINLIGNE {: table.ajouter(ip, dateMilli); :}
     ;
       
-log ::= IP:ip TIRET TIRET timestamp:date METHOD NUM NUM {: ip = new IP("ip"); :}
+log ::= IP:i TIRET TIRET timestamp METHOD NUM NUM {: ip = new IP((String)i); :}
 	;
       
-timestamp	::= CO NUM:d SL mois:mo SL NUM:y DP NUM:h DP NUM:mi DP NUM:s DECAL CF {: date = format.parse("d/mo/y:h:mi:s");
-																				     long dateMilli = date.getTime();
-																				  :}
+timestamp	::= CO NUM:d SL mois:mo SL NUM:y DP NUM:h DP NUM:mi DP NUM:s DECAL CF {: date = new Date(Integer.parseInt((String)y), 
+																									 Integer.parseInt((String)mo), 
+																									 Integer.parseInt((String)d), 
+																									 Integer.parseInt((String)h), 
+																									 Integer.parseInt((String)mi), 
+																									 Integer.parseInt((String)s));
+																					 dateMilli = date.getTime(); :}
     		;
               
 mois 	::= JAN {: RESULT = new String("01"); :}
