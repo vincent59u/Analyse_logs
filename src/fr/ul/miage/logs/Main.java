@@ -29,7 +29,9 @@ public class Main {
 			parser.parse();
 			System.out.println("Analyse terminé avec succès");
 		} catch (Exception e) {
-			System.err.println("Erreur de syntaxe");
+			System.err.println("Erreur de syntaxe :");
+			System.err.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 

@@ -1,5 +1,7 @@
 package fr.ul.miage.logs.session;
 
+import java.util.Objects;
+
 /**
  * Classe qui modélise une adresse IP
  * @author Matthieu
@@ -33,4 +35,21 @@ public class IP {
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
+	
+	@Override
+    public int hashCode() {
+		return Objects.hash(ip);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+    	if (obj == this){
+    		return true;
+    	}
+    	if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        IP i = (IP)obj;
+        return Objects.equals(this.ip, i.ip);
+    }
 }

@@ -686,55 +686,55 @@ public class Yylex implements java_cup.runtime.Scanner {
             }
           case 35: break;
           case 12: 
-            { return new Symbol(sym.JAN);
+            { return new Symbol(sym.JAN, yytext());
             }
           case 36: break;
           case 13: 
-            { return new Symbol(sym.JUIN);
+            { return new Symbol(sym.JUIN, yytext());
             }
           case 37: break;
           case 14: 
-            { return new Symbol(sym.JUIL);
+            { return new Symbol(sym.JUIL, yytext());
             }
           case 38: break;
           case 15: 
-            { return new Symbol(sym.FEV);
+            { return new Symbol(sym.FEV, yytext());
             }
           case 39: break;
           case 16: 
-            { return new Symbol(sym.MAR);
+            { return new Symbol(sym.MAR, yytext());
             }
           case 40: break;
           case 17: 
-            { return new Symbol(sym.MAI);
+            { return new Symbol(sym.MAI, yytext());
             }
           case 41: break;
           case 18: 
-            { return new Symbol(sym.AVR);
+            { return new Symbol(sym.AVR, yytext());
             }
           case 42: break;
           case 19: 
-            { return new Symbol(sym.AOU);
+            { return new Symbol(sym.AOU, yytext());
             }
           case 43: break;
           case 20: 
-            { return new Symbol(sym.SEP);
+            { return new Symbol(sym.SEP, yytext());
             }
           case 44: break;
           case 21: 
-            { return new Symbol(sym.OCT);
+            { return new Symbol(sym.OCT, yytext());
             }
           case 45: break;
           case 22: 
-            { return new Symbol(sym.NOV);
+            { return new Symbol(sym.NOV, yytext());
             }
           case 46: break;
           case 23: 
-            { return new Symbol(sym.DEC);
+            { return new Symbol(sym.DEC, yytext());
             }
           case 47: break;
           case 24: 
-            { return new Symbol(sym.IP);
+            { return new Symbol(sym.IP, yytext());
             }
           case 48: break;
           default:

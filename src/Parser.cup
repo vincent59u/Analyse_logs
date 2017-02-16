@@ -11,38 +11,39 @@ import java.util.Date;
 
 action code {:
 	Table table = new Table();
-	IP ip;
 	long dateMilli;
-	Date date;
 :}
 
 /* la grammaire */
 
-terminal IP, TIRET, METHOD, FINLIGNE;
+terminal String IP;
+terminal TIRET, METHOD, FINLIGNE;
 terminal CO, CF, SL, DP;
-terminal JAN, FEV, MAR, AVR, MAI, JUIN, JUIL, AOU, SEP, OCT, NOV, DEC;
+terminal String JAN, FEV, MAR, AVR, MAI, JUIN, JUIL, AOU, SEP, OCT, NOV, DEC;
 terminal DECAL;
-terminal NUM;
+terminal String NUM;
 
-non terminal  x, log, mois, timestamp;
+non terminal  x, log, mois;
+non terminal Date timestamp;
 
 start with x;
 
-x ::= log FINLIGNE x {: table.ajouter(ip, dateMilli); :}
-	| log FINLIGNE {: table.ajouter(ip, dateMilli); :}
+x ::= log FINLIGNE x
+	| log FINLIGNE {: System.out.println("Nombre total de session : " + table.calculNombreSession()); 
+					  System.out.println("Durée moyenne d'une session : " + table.calculDureeMoyenneSession() + " ms");
+					  System.out.println("Nombre d'utilisateurs différents : " + table.getTable().size()); :}
     ;
       
-log ::= IP:i TIRET TIRET timestamp METHOD NUM NUM {: ip = new IP((String)i); :}
+log ::= IP:ip TIRET TIRET timestamp:ts METHOD NUM NUM {: table.ajouter(new IP(ip), ts.getTime()); :}
 	;
-      
-timestamp	::= CO NUM:d SL mois:mo SL NUM:y DP NUM:h DP NUM:mi DP NUM:s DECAL CF {: date = new Date(Integer.parseInt((String)y), 
+	 	
+timestamp ::= CO NUM:d SL mois:mo SL NUM:y DP NUM:h DP NUM:mi DP NUM:s DECAL CF {: RESULT = new Date(Integer.parseInt(y), 
 																									 Integer.parseInt((String)mo), 
-																									 Integer.parseInt((String)d), 
-																									 Integer.parseInt((String)h), 
-																									 Integer.parseInt((String)mi), 
-																									 Integer.parseInt((String)s));
-																					 dateMilli = date.getTime(); :}
-    		;
+																									 Integer.parseInt(d), 
+																									 Integer.parseInt(h), 
+																									 Integer.parseInt(mi), 
+																									 Integer.parseInt(s)); :}
+    	  ;
               
 mois 	::= JAN {: RESULT = new String("01"); :}
 		| FEV {: RESULT = new String("02"); :}
