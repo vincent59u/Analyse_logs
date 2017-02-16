@@ -45,7 +45,6 @@ public class Table {
 	 */
 	public void ajouter(IP ip, long date){
 		// On vérifie si l'ip est déjà présente dans la table
-		System.out.println(ip.getIp());
 		if(table.containsKey(ip)){
 			// Si la date placé en paramètre est comprise dans un intervale de 10 minutes par rapport à au début de la dernière session
 			if(table.get(ip).getLast().getDebut() + 600000 >= date){
