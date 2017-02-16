@@ -181,7 +181,7 @@ class CUP$ParserCup$actions {
               Object RESULT =null;
 		//@@CUPDBG1
  System.out.println("Nombre total de session : " + table.calculNombreSession()); 
-					  System.out.println("Durée moyenne d'une session : " + table.calculDureeMoyenneSession() + " ms");
+					  System.out.println("Durée moyenne d'une session : " + (table.calculDureeMoyenneSession() / 1000) + " secondes");
 					  System.out.println("Nombre d'utilisateurs différents : " + table.getTable().size()); 
               CUP$ParserCup$result = parser.getSymbolFactory().newSymbol("x",0, ((java_cup.runtime.Symbol)CUP$ParserCup$stack.elementAt(CUP$ParserCup$top-1)), ((java_cup.runtime.Symbol)CUP$ParserCup$stack.peek()), RESULT);
             }

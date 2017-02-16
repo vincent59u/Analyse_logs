@@ -1,9 +1,9 @@
 /*
- * analyseur lexical du langage exemple-expr:
+ * analyseur lexical d'un fichier de logs Apache :
  * (voir support de cours CUP)
  *
- * auteur : azim.roussanaly@univ-lorraine.fr
- * (c) 2013
+ * auteur : Matthieu VINCENT
+ * (c) 2017
  */
 
 package fr.ul.miage.logs.generated;

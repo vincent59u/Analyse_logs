@@ -1,6 +1,3 @@
-/**
- * 
- */
 package fr.ul.miage.logs;
 
 import java.io.FileReader;
@@ -34,5 +31,4 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
-
 }

@@ -1,8 +1,8 @@
 /*
- * analyseur syntaxique  du langage timestamp:
+ * analyseur syntaxique d'un fichier de logs Apache :
  * (voir supports de cours)
  *
- * auteur : azim.roussanaly@univ-lorraine.fr
+ * auteur : Matthieu VINCENT
  * (c) 2017
  */ 
 package fr.ul.miage.logs.generated;
@@ -30,7 +30,7 @@ start with x;
 
 x ::= log FINLIGNE x
 	| log FINLIGNE {: System.out.println("Nombre total de session : " + table.calculNombreSession()); 
-					  System.out.println("Durée moyenne d'une session : " + table.calculDureeMoyenneSession() + " ms");
+					  System.out.println("Durée moyenne d'une session : " + (table.calculDureeMoyenneSession() / 1000) + " secondes");
 					  System.out.println("Nombre d'utilisateurs différents : " + table.getTable().size()); :}
     ;
       

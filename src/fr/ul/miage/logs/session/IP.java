@@ -36,11 +36,17 @@ public class IP {
 		this.ip = ip;
 	}
 	
+	/**
+	 * Réécriture de la méthode hashCode afin de pouvoir comparer les objets de type IP
+	 */
 	@Override
     public int hashCode() {
 		return Objects.hash(ip);
     }
 
+	/**
+	 * Réécriture de la méthode hashCode afin de pouvoir comparer les objets de type IP
+	 */
     @Override
     public boolean equals(Object obj) {
     	if (obj == this){
