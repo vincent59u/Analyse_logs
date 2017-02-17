@@ -1,11 +1,9 @@
 @echo OFF
 :: ----------------------------------------
-:: Script qui dÈmarre l'application d'évaluation
-:: d'une expression parenthésée
-:: Projet: Exemple CUP
-:: Author : A. Roussanaly
-:: Organization : Loria
-:: date : Fev 2013
+:: Script qui dÈmarre l'application d'analyse de logs Apache
+:: Projet: Analyse de logs Apache
+:: Author : Matthieu VINCENT
+:: date : Fev 2017
 :: ---------------------------------------
 :: Example of usage:
 :: > run
@@ -24,7 +22,7 @@ set LIB_DIR=%PROJ_HOME%\lib
 set CLASSES_DIR=%PROJ_HOME%\build\classes
 
 :: --->4) the name of class to launch
-set CLASS_NAME=fr.ul.miage.exemple.Main
+set CLASS_NAME=fr.ul.miage.logs.Main
 
 :: -->5) extra parameters
 set PARAMS=

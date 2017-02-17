@@ -1,10 +1,9 @@
 #!/bin/sh 
 # ----------------------------------------
 # Script for starting the following application:
-# exemple-epr
-# Author : A. Roussanaly
-# Organization : Loria
-# date : oct 2007
+# Analyse de logs Apache
+# Author : Matthieu VINCENT
+# date : Fev 2017
 # ---------------------------------------
 # Example of usage:
 # > run
@@ -23,7 +22,7 @@ CLASSES_DIR="$PROJ_HOME/build/classes"
 
 
 # --->4) the name of class to launch
-CLASS_NAME=fr.ul.miage.exemple.Main
+CLASS_NAME=fr.ul.miage.logs.Main
 
 # -->5) extra paramaters of the command
 PARAMS=""
