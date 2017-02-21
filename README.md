@@ -1,32 +1,28 @@
-# TP Analyse de logs d'un serveur Apache
+# TD Analyse de logs d'un serveur Apache 
 
-TD de Compilation CUP/LEX - Miage 2017
+Le but de ce TD était d'utiliser CUP et JFlex afin d'analyser un fichier de logs Apache et d'effectuer un traitement Java sur ces logs. Le sujet de ce TD est disponible à la racine du dépôt.
+Le projet est construit avec Ant (http://ant.apache.org).
+
+TD L3 - Miage 2017
 
 #Mode d'emploi : 
 
-##Ajouter le projet à Eclipse : 
-- Requis : Ajouter au préalable le plugin disponible à cette adresse : http://www2.cs.tum.edu/projekte/cup/eclipse.php
-- File -> New Java Project -> Décocher "Use default location" -> Indiquer le chemin du répertoire du projet, ici par exemple : RATH_CLADT_LOGSCOMPILATION -> Puis FINISH 
+Vous pouvez également consulter la documentation qui se trouve dans le dossier "/doc". Elle reprendra l'ensemble des éléments ci-dessous.
 
-##Pour que le projet compile : 
-- Clique droit sur le projet dans Eclipse -> Properties -> Builders -> Vérifier/Ajouter ANT en faisaint soit :
+##Téléchargement : 
 
-(Pour un nouveau ANT) 		- New -> Ant Builder -> OK -> Dans l'onglet Main , Buildfile, Cliquez sur "Browse Workspace..." et choisir le build.xml du projet.
-	  			Allez dans l'onglet "Targets" et faire : 
-				 - "After a 'Clean' :" Set Targets... , Décocher tout et cocher Cup 
-				 - "Manual Build :" Set Targets... , Décocher tout et cocher Cup
-				 - "Auto Build :" NE RIEN FAIRE
-				 - "During a 'Clean' :" Set Targets..., Décocher tout et cocher Clean
+Télécharger le fichier "Analyse_logs-0.1-src.tar.gz" qui se trouve dans le dossier "/dist". 
+Une fois télécharer, décompressez-le 
 
-(Si ANT est déjà présent)	- Cliquez sur "ANT", Edit... puis vérifier que tout correspond a la partie d'au dessus.
+##Utilisation : 
 
-Validez puis fermez la fenêtre propriété.
+Lancer un terminal à la racine du dossier décompressé. Puis lancer la commande `ant`. Elle permettra de compiler le projet. 
+Ensuite, aller dans le dossier "/bin" (`cd /bin`) et lancer la commande `sh run.sh samples/sample.txt`. 
 
-##Lancer le projet : 
-- Cliquez sur l'onglet "Projet" dans le menu en haut d'Eclipse, "Build Project.."
-- Il faut ensuite spécifier le fichier à utiliser pour analyser ses logs
-	Pour cela cliquez sur l'onglet "Run" puis "Run Configurations", Dans l'onglet arguments spécifier le chemin du fichier .log ( Ici samples/exemple.log )
-- Puis Run
+Il est également possible de changer le fichier de logs en ajoutant vos fichiers dans le dossier "/samples" et de modifier le nom du fichier lors du lancement du programme run.sh.
 
-Le projet devrait fonctionner et afficher le nombre d'utilisateurs différents ainsi que le temps moyen d'une session
-	 
+##Résultats :
+
+Le programme calculera le nombres d'utilisateur différents, la durée moyenne d'une session et le nombre totale de sessions. 
+
+NB : Nous considérons qu'une session dure 10 minutes.
