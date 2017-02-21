@@ -1,6 +1,6 @@
 # TD Analyse de logs d'un serveur Apache 
 
-Le but de ce TD était d'utiliser CUP et JFlex afin d'analyser un fichier de logs Apache et d'effectuer un traitement Java sur ces logs. Le sujet de ce TD est disponible à la racine du dépôt.
+Le but de ce TD était d'utiliser CUP et JFlex afin d'analyser un fichier de logs Apache et d'effectuer un traitement Java sur ces logs. Le sujet de ce TD est disponible dans le dossier "/doc".
 Le projet est construit avec Ant (http://ant.apache.org).
 
 TD L3 - Miage 2017
