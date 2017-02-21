@@ -17,7 +17,7 @@ Une fois télécharer, décompressez-le
 ##Utilisation : 
 
 Lancer un terminal à la racine du dossier décompressé. Puis lancer la commande `ant`. Elle permettra de compiler le projet. 
-Ensuite, aller dans le dossier "/bin" (`cd /bin`) et lancer la commande `sh run.sh samples/sample.txt`. 
+Ensuite, aller dans le dossier "/bin" (`cd /bin`) et lancer la commande `sh run.sh ../samples/sample.txt` ou `./run.sh ../samples/sample.txt` suivant votre OS. 
 
 Il est également possible de changer le fichier de logs en ajoutant vos fichiers dans le dossier "/samples" et de modifier le nom du fichier lors du lancement du programme run.sh.
 
